@@ -1,6 +1,5 @@
-import { listener, Module, slashCommand } from '@pikokr/command.ts'
+import { listener, Module, applicationCommand } from '@pikokr/command.ts'
 import { Client } from '../structures/client'
-import { SlashCommandBuilder } from '@discordjs/builders'
 import { CommandInteraction } from 'discord.js'
 
 class Hello extends Module {
@@ -8,12 +7,16 @@ class Hello extends Module {
         super()
     }
 
-    @slashCommand({
-        command: new SlashCommandBuilder().setName('test').setDescription('호애애'),
+    @applicationCommand({
+        command: {
+            type: 'CHAT_INPUT',
+            name: 'test',
+            description: '호애애',
+        },
     })
     async test(i: CommandInteraction) {
         await i.reply({
-            content: '호애애애애',
+            content: '호애애애애 -ㅅ-',
             ephemeral: true,
         })
     }
