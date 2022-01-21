@@ -12,7 +12,7 @@ export class Client extends CommandClient {
             command: {
                 prefix: '!!',
             },
-            slashCommands: {
+            applicationCommands: {
                 autoSync: true,
                 guild: config.slash.guild,
             },
